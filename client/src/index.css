@@ -1,0 +1,20 @@
+.home{
+    height: 100vh;
+    width: 100%;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    color: #4b4b4b;
+}
+
+.sidebar{
+    width: 10%;
+    height: 100%;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+}
+
+.btn{
+    color: #4b4b4b;
+}

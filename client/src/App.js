@@ -1,21 +1,16 @@
-import React, {useState, useEffect} from 'react'
-import axios from 'axios'
+import React from 'react'
+import {Routes, Route} from 'react-router-dom'
+import { Home, Video, Images } from './components'
+
 
 const App = () => {
-  const [msg, setMsg] = useState("")
-
-  useEffect(() => {
-    axios.get("http://localhost:3003/api").then((res) => {
-      setMsg(res.data.msg)
-      console.log(res)
-    }).catch((err) => console.log(err))
-  }, [])
-
-  if (!msg ) return <p>No Message</p>
   return(
-    <div className='app'>
-      <h1>this is message {msg}</h1>
-    </div>
+    <Routes>
+      <Route path='/' element={<Home />}>
+        <Route path='image' element={<Images />} />
+        <Route path='video' element={<Video />} />
+      </Route>
+    </Routes>
   )
 }
 
