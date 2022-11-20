@@ -2,6 +2,10 @@ require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const path = require("path")
+const bodyParser = require("body-parser")
+const fileUpload = require("express-fileupload")
+
+const imageRouter = require("./router/ImageRouter")
 
 // config
 const app = express();
@@ -13,10 +17,14 @@ app.use(
     origin: ["http://localhost:3000"],
   })
 );
+app.use(fileUpload())
+app.use(bodyParser.urlencoded({extended:true}))
+app.use(bodyParser.json())
 
 // view
 app.use(express.static(path.resolve(__dirname, "../client/build")))
 
+app.use(imageRouter)
 
 app.get("/api", (req, res) => {
     res.send({msg: "Hello world"})
