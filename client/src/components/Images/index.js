@@ -1,11 +1,15 @@
 import { useState } from "react";
-import { faceDetection } from "../../services/ImageService";
+import {
+  ageAndGenderDetection,
+  expressionDetection,
+  faceDetection,
+  landmarkDetection,
+} from "../../services/ImageService";
 
 const buttonFunc = [
   { name: "face", value: "Face Detection" },
   { name: "landmark", value: "Landmark Detection" },
-  { name: "age", value: "Age Estimate" },
-  { name: "gender", value: "Gender Recognition" },
+  { name: "age-gender", value: "Age Estimate && Gender Recognition" },
   { name: "expression", value: "Face Expression Detection" },
 ];
 
@@ -27,11 +31,20 @@ const Images = () => {
     setIsLoading(true);
     let result;
     if (img) {
+      let formData = new FormData();
+      formData.append("img", img);
       switch (e.target.name) {
         case "face":
-          result = faceDetection(img);
+          result = faceDetection(formData);
           break;
         case "landmark":
+          result = landmarkDetection(formData);
+          break;
+        case "age-gender":
+          result = ageAndGenderDetection(formData);
+          break;
+        case "expression":
+          result = expressionDetection(formData);
           break;
         default:
           break;
@@ -77,13 +90,13 @@ const Images = () => {
         </div>
       </div>
       <div className="process">
-        <div className="selected-image">    
+        <div className="selected-image">
           {isLoading ? (
             <div className="d-flex justify-content-center align-items-center h-100">
-            <div class="spinner-grow" role="status">
-  <span class="visually-hidden">Loading...</span>
-</div>
-          </div>
+              <div class="spinner-grow" role="status">
+                <span class="visually-hidden">Loading...</span>
+              </div>
+            </div>
           ) : (
             <img
               src={resultDetection ? resultDetection : url}
