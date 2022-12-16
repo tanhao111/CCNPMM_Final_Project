@@ -4,6 +4,7 @@ const {
   landmarkDetection,
   ageAndGenderDetection,
   expressionDetection,
+  faceRecognition,
 } = require("../controller/ImageController");
 const router = express.Router();
 
@@ -14,5 +15,7 @@ router.post("/landmark-detection", landmarkDetection);
 router.post("/age-gender", ageAndGenderDetection);
 
 router.post("/expression", expressionDetection);
+
+router.post("/face-recognition", faceRecognition);
 
 module.exports = router;

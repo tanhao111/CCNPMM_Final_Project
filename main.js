@@ -14,7 +14,7 @@ function createWindow () {
     }
   })
 
-  mainWindow.loadURL("http://localhost:3003")
+  mainWindow.loadURL("http://localhost:3002")
 
   // and load the index.html of the app.
   // mainWindow.loadFile('index.html')

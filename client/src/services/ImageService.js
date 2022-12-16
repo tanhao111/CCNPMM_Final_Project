@@ -1,5 +1,5 @@
 import axios from 'axios'
-const URL = "http://localhost:3003"
+const URL = "http://localhost:3002"
 
 export const faceDetection = async (data) => {
     return await axios({
@@ -28,6 +28,15 @@ export const ageAndGenderDetection = async (data) => {
 export const expressionDetection = async (data) => {
     return await axios({
         url:`${URL}/expression`,
+        method:"POST",
+        data: data
+    })
+}
+
+
+export const faceRecognition = async (data) => {
+    return await axios({
+        url:`${URL}/face-recognition`,
         method:"POST",
         data: data
     })

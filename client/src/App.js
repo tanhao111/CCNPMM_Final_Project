@@ -7,7 +7,7 @@ const App = () => {
   return(
     <Routes>
       <Route path='/' element={<Home />}>
-        <Route path='image' element={<Images />} />
+        <Route path='image/:func' element={<Images />} />
         <Route path='video' element={<Video />} />
       </Route>
     </Routes>
