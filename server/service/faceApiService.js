@@ -23,8 +23,6 @@ Promise.all([
 })
 
 
-// let optionsSSDMobileNet;
-
 const image = async (file) => {
   const decoded = tf.node.decodeImage(file);
   const casted = decoded.toFloat();
@@ -33,60 +31,6 @@ const image = async (file) => {
   casted.dispose();
   return result;
 };
-
-// const detect = async (tensor) => {
-//   const result = await faceapi.detectAllFaces(tensor, optionsSSDMobileNet);
-//   return result;
-// };
-
-// const landmarkDetect = async (tensor) => {
-//   return await faceapi
-//     .detectAllFaces(tensor)
-//     .withFaceLandmarks();
-// };
-
-// const main = async (file, _case) => {
-//   console.log("FaceAPI single-process test");
-
-//   await faceapi.tf.setBackend("tensorflow");
-//   await faceapi.tf.enableProdMode();
-//   await faceapi.tf.ENV.set("DEBUG", false);
-//   await faceapi.tf.ready();
-
-//   console.log(
-//     `Version: TensorFlow/JS ${faceapi.tf?.version_core} FaceAPI ${
-//       faceapi.version?.faceapi
-//     } Backend: ${faceapi.tf?.getBackend()}`
-//   );
-
-//   console.log("Loading FaceAPI models");
-//   await faceapi.nets.ssdMobilenetv1.loadFromDisk(modelPath);
-//   optionsSSDMobileNet = new faceapi.SsdMobilenetv1Options({
-//     minConfidence: 0.5,
-//   });
-
-//   const tensor = await image(file);
-//   let result;
-//   switch (_case) {
-//     case "face":
-//       result = await detect(tensor);
-//       break;
-//     case "landmark":
-//       await faceapi.nets.faceRecognitionNet.loadFromDisk(modelPath);
-//       await faceapi.nets.faceLandmark68Net.loadFromDisk(modelPath)
-
-//       result = await landmarkDetect(tensor);
-//     default:
-//       break;
-//   }
-//   // tensor.dispose();
-//   const canvasImg = await canvas.loadImage(file);
-//   const out = await faceapi.createCanvasFromMedia(canvasImg);
-//   await faceapi.draw.drawDetections(out, result);
-
-//   return await out.toBuffer("image/png");
-// };
-
 
 const detectFace = async (img) =>{
   const tensor = await image(img);
