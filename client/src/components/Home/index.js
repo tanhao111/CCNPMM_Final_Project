@@ -14,12 +14,6 @@ const Home = () => {
                 <Link to="image/expression" className="btn btn-outline-dark">Face Expression</Link>
                 <Link to="image/face-recognition" className="btn btn-outline-dark">Face Recognition</Link>
             </div>
-
-            <div className="image_func">
-                <h3>VIDEO</h3>
-                <Link to="video" className="btn btn-outline-dark">Face Detection</Link>
-            </div>
-
             <div className="image_func">
                 <h3>WEBCAM</h3>
                 <Link to="webcam" className="btn btn-outline-dark">Detection</Link>

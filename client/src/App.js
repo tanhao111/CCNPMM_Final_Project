@@ -8,7 +8,6 @@ const App = () => {
     <Routes>
       <Route path='/' element={<Home />}>
         <Route path='image/:func' element={<Images />} />
-        {/* <Route path='video' element={<Video />} /> */}
         <Route path='webcam' element={<Webcam />} />
       </Route>
     </Routes>
