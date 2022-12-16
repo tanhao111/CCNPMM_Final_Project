@@ -1,6 +1,6 @@
 import React from 'react'
 import {Routes, Route} from 'react-router-dom'
-import { Home, Video, Images } from './components'
+import { Home, Webcam, Images } from './components'
 
 
 const App = () => {
@@ -8,7 +8,8 @@ const App = () => {
     <Routes>
       <Route path='/' element={<Home />}>
         <Route path='image/:func' element={<Images />} />
-        <Route path='video' element={<Video />} />
+        {/* <Route path='video' element={<Video />} /> */}
+        <Route path='webcam' element={<Webcam />} />
       </Route>
     </Routes>
   )

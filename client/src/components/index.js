@@ -1,6 +1,5 @@
 import Home from "./Home"
 import Images from "./Images"
-import Video from "./Video"
+import Webcam from './Webcam'
 
-
-export {Home, Images, Video}
+export {Home, Images, Webcam}   
