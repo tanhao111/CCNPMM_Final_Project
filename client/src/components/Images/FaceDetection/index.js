@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   faceDetection,
   ageAndGenderDetection,
@@ -11,6 +11,11 @@ const FaceDetection = (props) => {
   const [url, setUrl] = useState(null);
   const [img, setImg] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    setUrl(null)
+    setImg(null)
+  }, [props.type])
 
   const loadImageHandler = (e) => {
     let file = e.target.files[0];

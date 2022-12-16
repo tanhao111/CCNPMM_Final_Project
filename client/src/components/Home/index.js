@@ -20,7 +20,7 @@ const Home = () => {
             </div>
             </div>
             <Outlet />
-        </div>
+        </div>  
     )
 }
 
